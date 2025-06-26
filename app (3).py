@@ -13,7 +13,7 @@ token_ids = {
     "NAKA": "nakamoto-games",
     "ANYONE": "anyone-protocol",
     "DEVVE": "devve",
-    "PROPS": "props-token"
+    "PROPS": "propbase"
 }
 
 def get_price(token_id):
