@@ -10,7 +10,7 @@ token_ids = {
     "PAAL": "paal-ai",
     "RIO": "realio-network",
     "NAKA": "nakamoto-games",
-    "ANYONE": "anyone-protocol",
+    "ANYONE": "airtor-protocol",
     "DEVVE": "devve",
     "PROPS": "propbase"
 }
