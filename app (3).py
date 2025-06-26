@@ -1,32 +1,29 @@
-
 import streamlit as st
 import requests
 
 st.set_page_config(page_title="Live GBP Prices", layout="centered")
-st.markdown("<h1>💷 Live GBP Prices - Core Portfolio</h1>", unsafe_allow_html=True)
+st.title("💷 Live GBP Prices - Core Portfolio")
 
-# Define the token list with correct CoinGecko IDs
-tokens = {
+token_ids = {
     "Bitcoin (BTC)": "bitcoin",
     "Tether (USDT)": "tether",
-    "PAAL": "paal",
+    "PAAL": "paal-ai",
     "RIO": "realio-network",
     "NAKA": "nakamoto-games",
     "ANYONE": "anyone-protocol",
     "DEVVE": "devve",
-    "PROPS": "props"
+    "PROPS": "propbase"
 }
 
-def fetch_price(token_id):
+def get_price(token_id):
     url = f"https://api.coingecko.com/api/v3/simple/price?ids={token_id}&vs_currencies=gbp"
     try:
         response = requests.get(url)
         response.raise_for_status()
-        data = response.json()
-        return data[token_id]["gbp"]
-    except Exception as e:
-        return f"Error"
+        return response.json()[token_id]["gbp"]
+    except:
+        return "£Error"
 
-for name, token_id in tokens.items():
-    price = fetch_price(token_id)
-    st.markdown(f"**{name}:** £{price}")
+for name, id_ in token_ids.items():
+    price = get_price(id_)
+    st.markdown(f"**{name}**: £{price}")
